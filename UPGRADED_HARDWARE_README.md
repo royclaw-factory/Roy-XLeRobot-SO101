@@ -158,8 +158,8 @@ We include 3D printable enclosures for the following compute platforms:
 - **Thomas Lei** — Lead CAD contributor. Designed the neck, chassis, powerbank mount, and Jetson Nano enclosure
 - **Yuncheng Xu** — Designed the under-arm mounts and control board enclosures
 - [Vector Wang](https://github.com/Vector-Wangel) — Original XLeRobot creator and collaborator on this upgrade
-- [Isaac Sin](https://x.com/IsaacSin12) — Hardware upgrade suggestions and MakerMods App development
-- **Liu Qi** — Hardware upgrade suggestions and feedback
+- [Isaac Sin](https://github.com/IsaacSinn) ([X](https://x.com/IsaacSin12)) — Hardware upgrade suggestions and MakerMods App development
+- [Liu Qi](https://github.com/Lakesenberg) — Hardware upgrade suggestions and feedback
 - [XLeRobot](https://github.com/Vector-Wangel/XLeRobot) — The foundation this project is built upon
 - [LeRobot (Hugging Face)](https://github.com/huggingface/lerobot) — Robotics framework
 - [SO-101](https://github.com/TheRobotStudio/SO-ARM100) — Arm design used by XLeRobot
@@ -171,7 +171,7 @@ This project is licensed under the [MIT License](./LICENSE).
 ## Contact
 
 - **Website:** [makermods.ai](https://makermods.ai)
-- **Email:** [contact@makermods.ai](mailto:contact@makermods.ai)
-- **Discord:** [Join our community]()
-- **X (Twitter):** [@MakerMods](https://x.com/MakerMods), [@Ryan_Resolution](https://x.com/Ryan_Resolution), [@IsaacSin12](https://x.com/IsaacSin12)
+- **Email:** [ryan@makermods.ai](mailto:ryan@makermods.ai), [isaac@makermods.ai](mailto:isaac@makermods.ai)
+- **Discord:** [Join our community](https://discord.gg/EP9MFcSc)
+- **X (Twitter):** [@Ryan_Resolution](https://x.com/Ryan_Resolution), [@IsaacSin12](https://x.com/IsaacSin12)
 
