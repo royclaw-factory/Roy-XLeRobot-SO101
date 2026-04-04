@@ -172,6 +172,6 @@ This project is licensed under the [MIT License](./LICENSE).
 
 - **Website:** [makermods.ai](https://makermods.ai)
 - **Email:** [ryan@makermods.ai](mailto:ryan@makermods.ai), [isaac@makermods.ai](mailto:isaac@makermods.ai)
-- **Discord:** [Join our community](https://discord.gg/EP9MFcSc)
+- **Discord:** [Join our community](https://discord.gg/HpXj3ynhhF)
 - **X (Twitter):** [@Ryan_Resolution](https://x.com/Ryan_Resolution), [@IsaacSin12](https://x.com/IsaacSin12)
 
