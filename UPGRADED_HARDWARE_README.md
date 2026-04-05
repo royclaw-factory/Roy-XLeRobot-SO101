@@ -7,10 +7,7 @@ Built by [MakerMods](https://makermods.ai) in collaboration with Vector Wang (or
 ## MakerMods XLeRobot Hardware Upgrade
 
 <div align="center">
-  <a href="assets/gifs/hackthon-whole.gif" target="_blank">
-    <img src="assets/gifs/hackthon-whole.gif" alt="Upgraded XLeRobot full system demonstration" width="85%"/>
-  </a>
-  <p><em>Full-system demo (GIF). Drop a high-res hero still at <code>assets/hero.jpg</code> when available for a cleaner above-the-fold photo.</em></p>
+  <img src="assets/images/hero_shot_17_04_02_18.png" alt="MakerMods XLeRobot Hardware Upgrade" width="85%"/>
 </div>
 
 ### At a glance
