@@ -16,7 +16,7 @@ Built by [MakerMods](https://makermods.ai) in collaboration with Vector Wang (or
 - **Print-tested `.3mf`** -- one Bambu Studio project (H2S / P2S, Esun PLA+) with labeled plates, supports, and settings -- the same file we use internally.
 - **Hackathon-proven** -- deployed **25 upgraded XLeRobots** for contestants at the Shenzhen MakerMods Physical AI x OpenClaw Hackathon; all units ran successfully throughout the event.
 - **Pre-assembled or DIY** -- **pre-built** skips ~two full days of assembly; you run our **auto-calibration script** at setup. **Kit** with MakerMods-sourced parts **coming soon** -- see [Buy Pre-Assembled](#buy-pre-assembled).
-- **Same software stack** -- [XLeRobot](https://github.com/Vector-Wangel/XLeRobot) + [LeRobot](https://github.com/huggingface/lerobot); no forked firmware, no software changes needed.
+- **Works directly with [XLeRobot](https://github.com/Vector-Wangel/XLeRobot) and [LeRobot](https://github.com/huggingface/lerobot)** -- clone the existing repos and follow their setup guides as-is; no fork, no patches, no custom firmware.
 - **Updates** -- [makermods.ai](https://makermods.ai) and [Discord](https://discord.gg/EP9MFcSc) for kit news and build support.
 
 ## Buy Pre-Assembled
@@ -35,7 +35,7 @@ Want your XLeRobot **running without ~two full days of mechanical assembly**? Ma
 
 **Full walkthrough video:** *[Add YouTube (or hosted) URL here when published -- this is what travels best on social.]*
 
-**Hackathon-Proven: 25 Upgraded XLeRobots at the Shenzhen Physical AI Open Call Hackathon**
+**Hackathon-Proven: 25 Upgraded XLeRobots at the Shenzhen Physical AI X OpenClaw Hackathon**
 
 <div align="center">
   <a href="assets/gifs/hackthon-whole.gif" target="_blank">
@@ -44,22 +44,22 @@ Want your XLeRobot **running without ~two full days of mechanical assembly**? Ma
   <p><em>Click the GIF to view it full-size</em></p>
 </div>
 
-**System demonstrations (autonomous)**
+**System demonstration**
 
 <div align="center">
   <table>
     <tr>
       <td align="center" width="33%">
-        <img src="assets/gifs/bimanual-manipulation.gif" alt="Bimanual manipulation demo" width="100%"/>
+        <img src="assets/gifs/candy_demo.gif" alt="Bimanual manipulation demo" width="100%"/>
         <p><em>Bimanual manipulation</em></p>
       </td>
       <td align="center" width="33%">
         <img src="assets/gifs/side-view.gif" alt="Side view demonstration" width="100%"/>
-        <p><em>Side view</em></p>
+        <p><em>Autonomous execution (side view)</em></p>
       </td>
       <td align="center" width="33%">
         <img src="assets/gifs/unzip-bagger.gif" alt="Task execution demo" width="100%"/>
-        <p><em>Task execution</em></p>
+        <p><em>Autonomous execution</em></p>
       </td>
     </tr>
   </table>
@@ -69,20 +69,17 @@ Want your XLeRobot **running without ~two full days of mechanical assembly**? Ma
 
 ## Mechanical design upgrades
 
-This section is the **hardware changes**: what we re-designed in CAD vs a typical stock XLeRobot-style build, and **why it is nicer to print, mount, and service**. Everything here is **mechanical** (printed parts, mounts, enclosures); software stays on the upstream [XLeRobot](https://github.com/Vector-Wangel/XLeRobot) + [LeRobot](https://github.com/huggingface/lerobot) stack.
+This section covers the **hardware changes**: what we re-designed in CAD vs a typical stock XLeRobot-style build, and **why it is nicer to print, mount, and service**. Everything here is **mechanical** (printed parts, mounts, enclosures). You use the [XLeRobot](https://github.com/Vector-Wangel/XLeRobot) and [LeRobot](https://github.com/huggingface/lerobot) repositories directly -- no modifications needed on the software side.
 
 **Stock vs redesigned plastic:** Only the **servo mounts on the head** and the **servo mounts on the two SO-101 arms** remain **stock** (upstream SO-101 / XLeRobot-style parts). **All other structural prints** in our release -- neck, IKEA cart integration, drivable wheel base, hub and driver mounts, **quick-release dual power bank mount** (below the neck), enclosures, and the rest of the mechanical stack -- are **MakerMods redesigned**.
-
-**Photo assets:** add images under [`assets/mechanical/`](./assets/mechanical/) using the filenames suggested in each subsection so the README can stay stable as you drop in renders or photos.
 
 ### Two-part neck (printability)
 
 We **split the neck into two printed parts** so each piece is **easier to orient and print successfully** on common FDM printers (fewer tall single-piece jobs).
 
-**Suggested photos**
-
-- `assets/mechanical/neck-parts-on-bed.jpg` -- both neck pieces on the build plate or side by side.
-- `assets/mechanical/neck-assembled.jpg` -- neck installed, showing the split line / assembly.
+<div align="center">
+  <img src="assets/mechanical/neck-two-part.jpg" alt="Two-part neck" width="60%"/>
+</div>
 
 ### SO-101 arm mounts, IKEA cart, and nut traps
 
@@ -90,19 +87,9 @@ The **large IKEA utility cart** is the robot's **main rolling structure** (frame
 
 **Nut traps:** every **hexagon nut trap is replaced with a square nut trap**. Nuts **slide in from the side** into their pockets. When you **disassemble** a joint or bracket, **captured square nuts do not fall out** the way loose or bottom-dropping hex nuts often do -- faster iteration when you are tuning wiring, swapping parts, or shipping the robot.
 
-**Suggested photos**
-
-- `assets/mechanical/arm-mount-ikea-cart.jpg` -- arm / mount interface to the **cart rails / frame** (not the drivable wheel base below).
-- `assets/mechanical/square-nut-trap-side-load.jpg` -- close-up of a side-loaded square nut trap (assembled and/or exploded).
-
-### Printed stack on the IKEA cart (upper robot body)
-
-Above the shelves, the **printed parts form the upper robot body** on top of the **IKEA cart**: room for **USB hubs, driver boards, power banks, and cable runs**, with paths chosen so you can **open the system back up** for maintenance or upgrades without a destructive teardown. This is the "glue" CAD that ties **arms, neck, and electronics** onto the **cart frame**.
-
-**Suggested photos**
-
-- `assets/mechanical/cart-upper-printed-overview.jpg` -- top-down or 3/4 view of the **printed upper assembly** on the IKEA cart.
-- `assets/mechanical/upper-cable-routing.jpg` -- optional; intentional harness paths on the cart.
+<div align="center">
+  <img src="assets/mechanical/so101-arm-mounts.jpg" alt="SO-101 arm mounts on IKEA cart" width="60%"/>
+</div>
 
 ### Drivable base at the bottom of the cart (wheel modules + bearings)
 
@@ -112,55 +99,41 @@ The **bottom of the IKEA cart** is where **locomotion** lives -- this is **not**
 
 **What we changed:** we treat **each wheel as its own module**. On one side you still have the **servo** that drives the wheel; on the **opposite side** we add a **bearing** so the axle is **supported from both sides**. Load is shared across **servo + bearing**, the wheel stays **square to the ground**, and the cart **handles XLeRobot mass** without the old **single-sided cantilever** behavior.
 
-**Suggested photos**
-
-- `assets/mechanical/wheel-module-bearing-side.jpg` -- show **servo side vs bearing side** of one module.
-- `assets/mechanical/wheel-modules-cart-bottom.jpg` -- all corners installed under the IKEA cart.
-- `assets/mechanical/wheel-module-exploded.jpg` -- optional exploded view of axle, bearing, and wheel.
+<div align="center">
+  <img src="assets/mechanical/drivable-base-wheels.jpg" alt="Drivable base with bearing-supported wheel modules" width="60%"/>
+</div>
 
 ### USB hub mounts
 
 Dedicated **USB hub mounts** put hubs where the **cable runs stay short** and **snag less** than zip-tying hubs to random surfaces. Hubs stay in the same place build after build, which matters when you are debugging USB dropouts or packing the robot for travel.
 
-**Suggested photos**
-
-- `assets/mechanical/usb-hub-mount-installed.jpg` -- hub clicked into / bolted to the mount on the robot.
+<div align="center">
+  <img src="assets/mechanical/usb-hub-mount.jpg" alt="USB hub mount installed" width="60%"/>
+</div>
 
 ### Control board mounts & driver enclosures
 
 **Bus servo driver boards** get **proper mounts and enclosures**: mechanical support, **strain relief** for harnesses, and a degree of **protection** (shorts, dust, bumps) vs bare PCBs floating in the volume. Together with the hub mounts, this is how we keep **power + USB + servo wiring** organized on a **rolling IKEA cart**.
 
-**Suggested photos**
-
-- `assets/mechanical/driver-board-enclosure.jpg` -- enclosure closed and/or open with boards installed.
-- `assets/mechanical/control-board-mount-detail.jpg` -- mount interface or stack-up.
+<div align="center">
+  <img src="assets/mechanical/control-board-enclosure.jpg" alt="Control board mount and driver enclosure" width="60%"/>
+</div>
 
 ### Dual power bank mount (below the neck, quick release)
 
 The structure **directly under the neck** includes a **quick-release cradle for two Lenovo Fluxo 140 W USB-PD power banks** (per [BOM](#bill-of-materials)). Banks **drop into place** and are held by a **compliant push tab** that acts as the **latch** -- no screws to chase when you need to **swap or charge** a pack in the field. It keeps both units **aligned** with the **harness plan** so USB-C bends and connector strain stay under control.
 
-**Suggested photos**
+<div align="center">
+  <img src="assets/mechanical/power-bank-mount.jpg" alt="Dual power bank quick-release mount" width="60%"/>
+</div>
 
-- `assets/mechanical/power-banks-mounted.jpg` -- both **Fluxo** packs seated; cable exits visible.
-- `assets/mechanical/power-bank-latch-tab.jpg` -- close-up of the **compliant latch tab** engaged / disengaged.
+### Compute enclosure (Jetson Nano)
 
-### Under-arm mounts
+Printable shell for **on-robot** compute (**NVIDIA Jetson Nano**) so the board is not bare and sliding around the cart.
 
-**Structured mounting points under the arms** for accessories, extra routing, or small payloads -- same idea as the rest of the refresh: **designed interfaces** instead of one-off clamps.
-
-**Suggested photos**
-
-- `assets/mechanical/under-arm-mount.jpg` -- context shot under an arm.
-
-### Compute enclosures (Jetson Nano, Raspberry Pi, Mac mini)
-
-Printable shells for **on-robot** (**Jetson Nano**, **Raspberry Pi**) and **desk-side** (**Mac mini**, e.g. with [OpenClaw](https://github.com/openclaw/openclaw)) so compute is not bare boards sliding around the cart or desk.
-
-**Suggested photos**
-
-- `assets/mechanical/enclosure-jetson.jpg`
-- `assets/mechanical/enclosure-pi.jpg`
-- `assets/mechanical/enclosure-mac-mini.jpg`
+<div align="center">
+  <img src="assets/mechanical/compute-enclosure-jetson.jpg" alt="Jetson Nano compute enclosure" width="60%"/>
+</div>
 
 ### Upgrade checklist (quick scan)
 
@@ -168,13 +141,11 @@ Printable shells for **on-robot** (**Jetson Nano**, **Raspberry Pi**) and **desk
 | ---- | ------------------------ |
 | Neck | **Two printed parts** for easier FDM printing |
 | SO-101 + IKEA cart | **Arm mounts** for the **cart frame**; **square side-loaded nut traps** (no falling hex nuts) |
-| Upper printed stack | **Layout on the IKEA cart** for electronics, harnesses, and service access |
 | Cart bottom / wheels | **Per-wheel modules**: **servo + opposing bearing** (replaces asymmetric stock **LeKewi**-style support) |
 | USB hubs | **Dedicated mounts**, shorter / safer cable paths |
 | Driver boards | **Mounts + enclosures**, cleaner wiring |
 | Power | **Quick-release** mount **below neck** for **2x Lenovo Fluxo 140 W**; **compliant tab latch** |
-| Under-arm | **Mount points** for accessories / routing |
-| Compute | **Jetson / Pi / Mac mini** printable enclosures |
+| Compute | **Jetson Nano** printable enclosure |
 
 ## Stock vs this repository
 
@@ -185,7 +156,7 @@ Printable shells for **on-robot** (**Jetson Nano**, **Raspberry Pi**) and **desk
 | Mechanical packaging | Baseline community CAD | **Two-part neck** (printability); **SO-101 mounts** on **IKEA cart**; **square side-loaded nut traps**; **printed upper stack** on cart; **drivable base** with **bearing-supported wheel modules** (vs stock **LeKewi** asymmetry); **hub + driver** mounts/enclosures |
 | Field power | Per upstream BOM choices | **2× Lenovo Fluxo 140 W** in a **quick-release mount below the neck** (compliant **latch tab**) + cabling aligned to the **printed layout** on the cart |
 | USB / drivers | User-dependent layout | **Hub + driver mounts/enclosures** for a repeatable install |
-| Compute | Bring your own | **Jetson / Raspberry Pi / Mac mini** printable enclosures |
+| Compute | Bring your own | **Jetson Nano** printable enclosure |
 
 ## Specs (hardware configuration for this BOM)
 
@@ -193,7 +164,7 @@ Figures below are **for this repo's BOM snapshot**; arm kinematics, payload, and
 
 | Item | Details |
 | ---- | ------- |
-| Software compatibility | [XLeRobot](https://github.com/Vector-Wangel/XLeRobot) + [LeRobot](https://github.com/huggingface/lerobot) (drop-in hardware swap) |
+| Software compatibility | Use [XLeRobot](https://github.com/Vector-Wangel/XLeRobot) and [LeRobot](https://github.com/huggingface/lerobot) directly -- no fork or modifications needed |
 | Cameras | **Same camera module** mounted at **wrist** and **head** (two units). Using one camera type in both places **reduces cost** versus using two different cameras; **perception quality remains strong** in our builds. |
 | Servos | **17x** 12 V + **12x** 7.4 V bus servos (per BOM) |
 | Power | **2x** Lenovo **Fluxo** **140 W** USB-PD power banks (per BOM) |
@@ -202,14 +173,13 @@ Figures below are **for this repo's BOM snapshot**; arm kinematics, payload, and
 
 ## Software Compatibility
 
-This hardware is intended as a **drop-in replacement** for the upstream printed/mechanical stack -- **no software fork** is required for compatibility.
+This hardware is a **drop-in replacement** for the stock printed/mechanical stack. You install and run the [XLeRobot](https://github.com/Vector-Wangel/XLeRobot) and [LeRobot](https://github.com/huggingface/lerobot) repositories exactly as documented -- same setup steps, same commands, same configs. No fork, no patches, no environment changes.
 
 ### LeRobot Integration
 
-Fully integrated with the [Hugging Face LeRobot](https://github.com/huggingface/lerobot) ecosystem: train and deploy VLA policies, record datasets, and run inference with the same workflows as stock XLeRobot.
+Use the [Hugging Face LeRobot](https://github.com/huggingface/lerobot) repo directly: train and deploy VLA policies, record datasets, and run inference with the same workflows and scripts as a stock XLeRobot build.
 
-> **Upstream contribution (pending review):** MakerMods opened a **pull request** on [huggingface/lerobot](https://github.com/huggingface/lerobot) to extend **automatic calibration** to **all SO-101-class arms** in LeRobot. It is **waiting on maintainer review and merge**. Once it lands, SO-101 users -- including XLeRobot-style bimanual setups -- get a **clearer, more repeatable calibration story** inside the official framework (not a MakerMods-only fork).
-> *Paste the PR URL in this README when you want extra visibility; thoughtful review comments and community signal on the PR help maintainers prioritize.*
+> **Auto-calibration PR (pending review):** We have an open pull request on LeRobot that adds **automatic calibration for all SO-101-class arms**: [huggingface/lerobot#3282](https://github.com/huggingface/lerobot/pull/3282). If you want to try it with **LeRobot v0.5.0**, you can check out that branch directly. Once merged, SO-101 users -- including XLeRobot-style bimanual setups -- get a **cleaner, more repeatable calibration workflow** inside the official framework.
 
 ### Supported Control Modes
 
@@ -222,7 +192,7 @@ Fully integrated with the [Hugging Face LeRobot](https://github.com/huggingface/
 | Simulation | Full MuJoCo simulation support |
 | Web Control | Browser-based control interface |
 
-All modes work with the existing [XLeRobot codebase](https://github.com/Vector-Wangel/XLeRobot) -- plug and play.
+All modes work directly with the existing [XLeRobot](https://github.com/Vector-Wangel/XLeRobot) and [LeRobot](https://github.com/huggingface/lerobot) repositories -- no extra configuration required.
 
 ## Getting Started (first ~30 minutes)
 
@@ -232,7 +202,7 @@ Goal: end with **teleoperation or simulation running**, not just a cloned repo.
    - **DIY:** slice and print from the **master `.3mf`** in [`/stl`](./stl) (Bambu **H2S / P2S**, **Esun PLA+** -- see [3D Printed Parts](#3d-printed-parts)), source the [BOM](#bill-of-materials), and assemble (interim guidance under [Assembly Guide](#assembly-guide)).
    - **Fast path:** [buy pre-assembled](https://makermods.ai/xlerobot) and skip roughly **two days** of assembly; then run **auto-calibration** with our script.
 2. **Prepare a workstation** -- Ubuntu or macOS per upstream docs; GPU optional for sim, required for some local training paths.
-3. **Install XLeRobot software** -- follow the [XLeRobot repository](https://github.com/Vector-Wangel/XLeRobot) and [documentation](https://xlerobot.readthedocs.io/) through environment setup and dependencies.
+3. **Install XLeRobot software** -- clone the [XLeRobot repository](https://github.com/Vector-Wangel/XLeRobot) and follow its [documentation](https://xlerobot.readthedocs.io/) for environment setup and dependencies. No extra steps are needed for the upgraded hardware -- the existing install instructions apply as-is.
 4. **Connect hardware (physical robot)** -- power, USB hubs, and servo buses as per your wiring checklist; fix any cable strain before first motion.
 5. **Calibration** -- run the upstream calibration / teleop entry flow (auto range-of-motion style calibration is supported in the stack -- see [teleop docs](https://xlerobot.readthedocs.io/en/latest/software/getting_started/XLeRobot_teleop.html) and project README). For **SO-101 + LeRobot**, see the pending upstream PR described under [LeRobot integration](#lerobot-integration).
 6. **First motion** -- start **simulation** or **hardware teleop** using a [supported control mode](#supported-control-modes). You should see **joints move under command** or **sim state updating** within one session.
@@ -293,19 +263,6 @@ Until those ship, lean on the [BOM](#bill-of-materials), the **master `.3mf`** a
 | Enclosure | Use Case |
 | --------- | -------- |
 | NVIDIA Jetson Nano | On-robot inference and control |
-| Mac Mini | Desk-side compute for [OpenClaw](https://github.com/openclaw/openclaw) integration |
-| Raspberry Pi | Lightweight on-robot control |
-
-## Ecosystem & Roadmap
-
-**MakerMods** pairs **modular hardware** (kits, upgrades, **MakerMods Box**-style bundles as you define them) with **software** for embodied AI -- so teams can go from teleop to dataset to policy without stitching five unrelated tools.
-
-**Near-term roadmap (edit dates when confident):**
-
-- Ship **assembly guide** + interim photo/diagram pass.
-- Publish **hero still** + **long-form video** link above the fold.
-- Land the **LeRobot SO-101 auto-calibration** PR (see [LeRobot integration](#lerobot-integration)) after maintainer review.
-- Continue **hackathons & community challenges** (e.g. Shenzhen Physical AI Open Call Hackathon) -- announce on [Discord](https://discord.gg/EP9MFcSc) / X.
 
 ## Contributing
 
