@@ -277,15 +277,15 @@ lerobot-calibrate --teleop.type=so101_leader --teleop.port=/dev/tty.usbmodem5876
 ## 10. 來源
 
 ### 本地檔案（repo 路徑）
-- `/home/roy422/RoyBot/RoyBot-Lab/src/Roy-XLeRobot-SO101/reference/SO-ARM100/README.md`
-- `/home/roy422/RoyBot/RoyBot-Lab/src/Roy-XLeRobot-SO101/reference/SO-ARM100/SO100.md`
-- `/home/roy422/RoyBot/RoyBot-Lab/src/Roy-XLeRobot-SO101/reference/SO-ARM100/3DPRINT.md`
-- `/home/roy422/RoyBot/RoyBot-Lab/src/Roy-XLeRobot-SO101/reference/SO-ARM100/Simulation/SO101/README.md`
-- `/home/roy422/RoyBot/RoyBot-Lab/src/Roy-XLeRobot-SO101/reference/XLeRobot/docs/en/source/hardware/getting_started/assemble.md`（含 §Wiring / §Wheel Base / §Final Assembly 多項已驗證警告）
-- `/home/roy422/RoyBot/RoyBot-Lab/src/Roy-XLeRobot-SO101/reference/XLeRobot/docs/en/source/hardware/getting_started/material.md`
-- `/home/roy422/RoyBot/RoyBot-Lab/src/Roy-XLeRobot-SO101/reference/XLeRobot/docs/en/source/hardware/getting_started/3d.md`
-- `/home/roy422/RoyBot/RoyBot-Lab/src/Roy-XLeRobot-SO101/reference/XLeRobot/docs/en/source/hardware/hardware_intro/index.md`
-- `/home/roy422/RoyBot/RoyBot-Lab/src/Roy-XLeRobot-SO101/reference/leLab/README.md`、`CLAUDE.md`、`pyproject.toml`、`lelab/calibrate.py`、`lelab/teleoperate.py`、`lelab/record.py`、`lelab/server.py`、`lelab/scripts/lelab.py`
+- `/home/roy422/RoyBot/RoyBot-Lab/src/AnvilBot/reference/SO-ARM100/README.md`
+- `/home/roy422/RoyBot/RoyBot-Lab/src/AnvilBot/reference/SO-ARM100/SO100.md`
+- `/home/roy422/RoyBot/RoyBot-Lab/src/AnvilBot/reference/SO-ARM100/3DPRINT.md`
+- `/home/roy422/RoyBot/RoyBot-Lab/src/AnvilBot/reference/SO-ARM100/Simulation/SO101/README.md`
+- `/home/roy422/RoyBot/RoyBot-Lab/src/AnvilBot/reference/XLeRobot/docs/en/source/hardware/getting_started/assemble.md`（含 §Wiring / §Wheel Base / §Final Assembly 多項已驗證警告）
+- `/home/roy422/RoyBot/RoyBot-Lab/src/AnvilBot/reference/XLeRobot/docs/en/source/hardware/getting_started/material.md`
+- `/home/roy422/RoyBot/RoyBot-Lab/src/AnvilBot/reference/XLeRobot/docs/en/source/hardware/getting_started/3d.md`
+- `/home/roy422/RoyBot/RoyBot-Lab/src/AnvilBot/reference/XLeRobot/docs/en/source/hardware/hardware_intro/index.md`
+- `/home/roy422/RoyBot/RoyBot-Lab/src/AnvilBot/reference/leLab/README.md`、`CLAUDE.md`、`pyproject.toml`、`lelab/calibrate.py`、`lelab/teleoperate.py`、`lelab/record.py`、`lelab/server.py`、`lelab/scripts/lelab.py`
 
 ### Web（URL）
 - https://huggingface.co/docs/lerobot/so101 （find-port / setup-motors / calibrate 指令、follower 1/345 與 leader 三種齒比、feetech 安裝、chmod 666；多項 confirmed）
