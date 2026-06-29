@@ -71,15 +71,15 @@ W2 是**硬體收斂排程，不是學習週**，目標是推進 **Stage 0.5（l
 
 ## 現況（2026-06-29，Stage 0 ✅ / Stage 0.5 🔄 / Stage 0 pass ❌）
 
-> **Stage 狀態**：Stage 0（follower bring-up + 首次動作）✅；Stage 0.5（leader station）🔄 進行中（Leader #1 僅寫 ID）；**Stage 0 pass（單臂 teleop 5 分鐘無失控 + evidence）尚未達成**。
+> **Stage 狀態**：Stage 0（follower bring-up + 首次動作）✅；Stage 0.5（leader station）🔄 進行中（**Leader #1 bus + 校正 ✅（2026-06-29）**，Leader #2 未開始）；**Stage 0 pass（單臂 teleop 5 分鐘無失控 + evidence）尚未達成**。
 >
-> 證據紀律：「USB 能列舉」≠「servo bus 健康」。沒有 scan / calibration / teleop evidence 不可稱 bus healthy。Leader #1 目前**只寫了 ID**，bus 健康仍 **TBD / 待驗證**。
+> 證據紀律：「USB 能列舉」≠「servo bus 健康」。沒有 scan / calibration / teleop evidence 不可稱 bus healthy。Leader #1 已於 2026-06-29 補驗：`scan_port` 回 `[1..6]`、`lerobot-calibrate` 存出 `roy_leader`（見 run-log）；**唯一殘留**＝齒比↔關節對應正確性待首條 teleop 施力時功能性驗。
 
 | 臂 | 馬達 / 電壓 | 控制板 | ID | 組裝 | bus | 校正 | blocker / 備註 |
 |---|---|---|---|---|---|---|---|
 | Follower #1 | 6× STS3215-C018 / 12V / 1:345 | `...3925`(good) | ✅ | ✅ | ✅(scan 3×穩) | ✅ `roy_follower` | **F3（肘）接頭 marginal、寫入間歇掉封包**；teleop/錄資料前須重壓/更換 |
 | Follower #2 | 6× STS3215(777) / 12V | `...0335`(good) | ✅ | ✅ | ✅(scan 5×全綠) | ✅ `roy_follower2` | 乾淨，無已知問題；首次動作 demo 尚未做 |
-| Leader #1 | 6× STS3215 混齒比 / **7.4V → 配 5V** | `...0371` | ✅ | **待做** | **TBD / 待驗證** | **待做** | bus 健康未驗證，組裝＋scan＋校正皆 TBD |
+| Leader #1 | 6× STS3215 混齒比 / **7.4V → 配 5V** | `...0371` | ✅ | ✅ | ✅(scan `[1..6]`) | ✅ `roy_leader` | 齒比↔關節對應待 teleop 施力驗 |
 | Leader #2 | TBD（同 L1） | TBD | ❌ | ❌ | ❌ | ❌ | 未開始 |
 
 控制板 `...4639` = **SUSPECT、暫停、未複驗**（USB 可列舉但 `scan_port` 回 `{}`、`RX_BYTES 0`），不在關鍵路徑。
@@ -87,7 +87,7 @@ W2 是**硬體收斂排程，不是學習週**，目標是推進 **Stage 0.5（l
 **進度來源 run-log（硬體聲明一律引用）**
 - Follower #1：`docs/04-run-log/2026-06-26-follower-motor-id-setup.md`（ID / 組裝 / bus 排障 / 校正 / 首次自主動作，已目視確認；F3 待辦）。
 - Follower #2：`docs/04-run-log/2026-06-27-follower2-bringup.md`（ID / 板 `...0335` / scan 5×全綠 / 校正 range）。
-- Leader #1：`docs/04-run-log/2026-06-27-leader-bringup.md`（6 顆混齒比 / 5V / ID 表；bus 健康 TBD）。
+- Leader #1：`docs/04-run-log/2026-06-27-leader-bringup.md`（ID 表 / 齒比 / 5V）+ `docs/04-run-log/2026-06-29-leader1-calibration.md`（bus `[1..6]` + 校正 `roy_leader`，含 homing offset）。
 - 失敗 / 風險：`docs/05-failure-log.md`（F3 marginal、板 `...4639` SUSPECT）。
 - 量測：`docs/06-metrics.md`（follower 校正 encoder range）。
 - 決策：`docs/07-decisions.md`（2F+2L 傾向、四手霸王 / VR 推 phase-2、suspect 不蓋棺）。
@@ -114,6 +114,8 @@ W2 是**硬體收斂排程，不是學習週**，目標是推進 **Stage 0.5（l
 
 ## 接下來 3 個行動（對齊 W2）
 
-1. **補完 Leader #1（關鍵路徑）**：ID1 底座 → ID6 握把組裝（混齒比放對關節、**5V 電源**）→ 整串 `FeetechMotorsBus.scan_port` 驗 `[1..6]` 全綠 → `lerobot-calibrate --teleop.type=so101_leader`。產出新 run-log + scan 截圖；在此之前 Leader bus 健康一律寫 TBD。
-2. **拿下 W2 里程碑：第一條 leader→follower 空中動作 teleop**——配 **Leader #1 → Follower #2（乾淨 bus）**、用 `lerobot-teleoperate`、無負載無 policy，錄影片 + terminal log。避開 F3；F3 修復排在正式錄資料前。
-3. **收斂 W2 P0 文件**：四臂貼標拍照 → 建 `docs/hardware-state.md`（含齒比 / 板 / port / 校正 / blocker）→ 填 `docs/02-bom.md`（v0 採購清單給老師）→ 填 `docs/08-media-index.md` 索引照片 / 影片 / log。
+> ✅ **已完成（2026-06-29）**：補完 Leader #1——`scan_port` 驗 `[1..6]` 全綠 + `lerobot-calibrate` 存出 `roy_leader`（見 `docs/04-run-log/2026-06-29-leader1-calibration.md`）。
+
+1. **拿下 W2 里程碑：第一條 leader→follower 空中動作 teleop**——配 **Leader #1 → Follower #2（乾淨 bus）**、用 `lerobot-teleoperate`、無負載無 policy，錄影片 + terminal log。避開 F3；F3 修復排在正式錄資料前。**此步同時功能性驗 Leader #1 齒比↔關節對應是否力矩匹配。**
+2. **Leader #2 整條 pipeline**（ID → 組裝 → scan `[1..6]` → 校正 `roy_leader2`，同 Leader #1 流程）＋ **Follower #2 首次動作 demo**（仿 `~/demo_follower_v2.py` 改 port/id 目視確認）。
+3. **朝 Stage 0 pass**：單臂 teleop 連續 5 分鐘無失控 + 影片/log；通過後再決定 **2F+2L 是否正式 LOCK**（`docs/open-questions.md` Q1）。

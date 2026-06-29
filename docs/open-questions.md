@@ -34,19 +34,19 @@
 | 欄位 | 內容 |
 |---|---|
 | 問題 | 目前 2F+2L 是「傾向」還是「鎖定」？是否允許之後改 4-hand 霸王 / 單臂等其他組態？ |
-| 現況與證據 | `docs/07-decisions.md` 記為**傾向（tendence），非 LOCK**；4-hand despot 與 VR teleop 已明確推到 phase-2。實機現況：Follower #1 / #2 已 bring-up（`2026-06-26-follower-motor-id-setup.md`、`2026-06-27-follower2-bringup.md`），Leader #1 僅寫 ID（`2026-06-27-leader-bringup.md`），Leader #2 未開始。 |
+| 現況與證據 | `docs/07-decisions.md` 記為**傾向（tendence），非 LOCK**；4-hand despot 與 VR teleop 已明確推到 phase-2。實機現況：Follower #1 / #2 已 bring-up（`2026-06-26-follower-motor-id-setup.md`、`2026-06-27-follower2-bringup.md`），Leader #1 bus + 校正已驗（`2026-06-29-leader1-calibration.md`：scan `[1..6]`、`roy_leader`），Leader #2 未開始。 |
 | 選項 | (a) 正式 LOCK 2F+2L 作為夏季第一迴圈定組態；(b) 維持「傾向」、保留彈性到 Leader #1 teleop 驗證後再鎖。 |
 | 影響 | 影響 BOM v0 採購數量（`docs/02-bom.md`）、Leader #2 是否該本週啟動、文件中「定組態」敘述能否定稿。 |
 | 待誰決策 | Roy / PM。 |
 | 優先序 | P0（牽動 W2 P0 採購清單與里程碑文案）。 |
-| 建議 | 工程上 2F+2L 站得住（leader 為低扭混齒比、專為當 leader 設計，當 follower 會「2 強 2 弱」）。建議**等 Q2 首條 teleop 跑通後再 LOCK**，避免在 leader bus 健康未驗證前定死。 |
+| 建議 | 工程上 2F+2L 站得住（leader 為低扭混齒比、專為當 leader 設計，當 follower 會「2 強 2 弱」）。建議**等 Q2 首條 teleop 跑通後再 LOCK**：leader bus 雖已驗（2026-06-29），但「2 強 2 弱」手感與齒比↔關節對應要 teleop 施力才驗得出，定死前先跑通。 |
 
 ### Q2 — W2 首條 leader→follower 空中動作 teleop 用哪組配對
 
 | 欄位 | 內容 |
 |---|---|
 | 問題 | W2 P0 里程碑「至少一條 leader→follower 空中動作 teleop」要配哪一隻 follower？ |
-| 現況與證據 | Follower #2（板 `...0335`）整串 `scan_port` **連掃 5 次全綠、校正全程無掉封包**（`2026-06-27-follower2-bringup.md`）。Follower #1 有 **F3 接頭 marginal、寫入間歇掉封包**（`2026-06-26-follower-motor-id-setup.md`；見 Q4），靜態 scan 穩但動態寫入會失敗。Leader #1 bus 健康仍 **TBD**（`2026-06-27-leader-bringup.md`，僅寫 ID、未組裝未 scan）。 |
+| 現況與證據 | Follower #2（板 `...0335`）整串 `scan_port` **連掃 5 次全綠、校正全程無掉封包**（`2026-06-27-follower2-bringup.md`）。Follower #1 有 **F3 接頭 marginal、寫入間歇掉封包**（`2026-06-26-follower-motor-id-setup.md`；見 Q4），靜態 scan 穩但動態寫入會失敗。Leader #1 bus + 校正已驗（`2026-06-29-leader1-calibration.md`：scan `[1..6]` 全綠、`roy_leader` 存檔），可起首測。 |
 | 選項 | (a) **Leader #1 → Follower #2（乾淨 bus）**；(b) Leader #1 → Follower #1（需先修 F3）。 |
 | 影響 | 決定 P0 是否被硬體維修卡住；決定第一支 teleop 影片/log 的證據能不能在 W2 內拿到。 |
 | 待誰決策 | Roy（工程建議已備，等確認）。 |

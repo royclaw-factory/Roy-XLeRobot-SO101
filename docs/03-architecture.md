@@ -57,11 +57,11 @@ Pi5 USB ── /dev/ttyACM0 ── [控制板] ──TTL菊鏈── M1─M2─M
 |---|---|---|---|---|
 | Follower #1 | `...3925`（good） | ✅ `{1000000:[1..6]}` 連掃 3 次穩 | `roy_follower` | **F3(elbow/id3) 接頭 marginal**：靜態 scan 穩、寫入間歇掉封包，`num_retry=5` 可繞但不可長扛 → teleop/錄資料 blocker（`2026-06-26-follower-motor-id-setup.md` L44,46,62–67） |
 | Follower #2 | `...0335`（good） | ✅ `{1000000:[1..6]}` 連掃 5 次全綠 | `roy_follower2` | 全程無 status packet error；最乾淨的 bus（`2026-06-27-follower2-bringup.md` L51,55） |
-| Leader #1 | `...0371` | **TBD / 待驗證**（只寫了 ID，組裝＋整串 scan 未做） | **待做** | 6 顆混齒比、**7.4V→配 5V**；bus 健康未驗證前一律寫 TBD（`2026-06-27-leader-bringup.md` L6–7,32–36） |
+| Leader #1 | `...0371` | ✅ `{1000000:[1..6]}`（2026-06-29 全綠、零掉封包） | `roy_leader` | 6 顆混齒比、**7.4V→配 5V**；齒比↔關節對應待 teleop 施力驗（`2026-06-29-leader1-calibration.md`） |
 | Leader #2 | TBD | ❌ 未開始 | ❌ | 未開始 |
 | 控制板 `...4639` | —（暫停） | **NO**：USB 可列舉但 `scan_port {}`、`RX_BYTES 0` | — | **SUSPECT、未複驗、不在關鍵路徑**（`05-failure-log.md` 2026-06-26） |
 
-> **證據紀律（硬規則）：USB 能列舉 ≠ servo bus 健康。** `...4639` 即反例——`/dev/serial/by-id/` 看得到、port 開得起來，但 servo 端 0 回應。**沒有 `scan_port` 綠燈 + 校正 + teleop 證據，不得稱任何 bus「healthy」。** Leader #1 目前只到「寫了 ID」，bus 健康仍 **TBD**。
+> **證據紀律（硬規則）：USB 能列舉 ≠ servo bus 健康。** `...4639` 即反例——`/dev/serial/by-id/` 看得到、port 開得起來，但 servo 端 0 回應。**沒有 `scan_port` 綠燈 + 校正 + teleop 證據，不得稱任何 bus「healthy」。** Leader #1 已於 2026-06-29 補驗（scan `[1..6]` 全綠 + 校正 `roy_leader`）；唯齒比↔關節對應待 teleop 功能性驗。
 >
 > Leader 逐關節齒比一律以 `docs/04-run-log/2026-06-27-leader-bringup.md`（L9–25）為準，**禁用**被組裝 runbook §4 C2 明文推翻的舊對應；完整齒比表見 `docs/hardware-state.md`。
 
